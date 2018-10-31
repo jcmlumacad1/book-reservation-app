@@ -11,6 +11,7 @@ class EditBookModal extends React.Component {
           <ModalBody>
             <EditBookForm
               onSubmit={this.props.onSubmit}
+              book={this.props.book}
             />
           </ModalBody>
         </Modal>

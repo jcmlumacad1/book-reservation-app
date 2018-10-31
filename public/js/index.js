@@ -22322,7 +22322,8 @@ var App = function (_Component) {
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_EditBookModal_js__["a" /* default */], {
           toggle: this.toggleEditBookModal.bind(this),
-          modal: this.state.editBookModal
+          modal: this.state.editBookModal,
+          book: this.state.activeBookToEdit
         })
       );
     }
@@ -33777,7 +33778,8 @@ var EditBookModal = function (_React$Component) {
             __WEBPACK_IMPORTED_MODULE_1_reactstrap__["g" /* ModalBody */],
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__EditBookForm_js__["a" /* default */], {
-              onSubmit: this.props.onSubmit
+              onSubmit: this.props.onSubmit,
+              book: this.props.book
             })
           )
         )
@@ -33832,7 +33834,7 @@ var EditBookForm = function (_React$Component) {
             { 'for': 'editBookFormName' },
             'Name'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_reactstrap__["d" /* Input */], { type: 'text', name: 'editBookFormName', id: 'editBookFormName' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_reactstrap__["d" /* Input */], { type: 'text', name: 'editBookFormName', id: 'editBookFormName', defaultValue: this.props.book.name })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_1_reactstrap__["c" /* FormGroup */],
@@ -33842,7 +33844,7 @@ var EditBookForm = function (_React$Component) {
             { 'for': 'editBookFormAuthor' },
             'Author'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_reactstrap__["d" /* Input */], { type: 'text', name: 'editBookFormAuthor', id: 'editBookFormAuthor' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_reactstrap__["d" /* Input */], { type: 'text', name: 'editBookFormAuthor', id: 'editBookFormAuthor', defaultValue: this.props.book.author })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_1_reactstrap__["c" /* FormGroup */],
@@ -33852,7 +33854,7 @@ var EditBookForm = function (_React$Component) {
             { 'for': 'editBookFormDescription' },
             'Description'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_reactstrap__["d" /* Input */], { type: 'textarea', name: 'editBookFormDescription', id: 'editBookFormDescription' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_reactstrap__["d" /* Input */], { type: 'textarea', name: 'editBookFormDescription', id: 'editBookFormDescription', value: this.props.book.description })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_1_reactstrap__["a" /* Button */],

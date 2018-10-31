@@ -128,6 +128,7 @@ class App extends Component {
         <EditBookModal
           toggle={this.toggleEditBookModal.bind(this)}
           modal={this.state.editBookModal}
+          book={this.state.activeBookToEdit}
         />
       </div>
     );
