@@ -11,7 +11,7 @@ const BookList = (props) => {
             {book.name}
             <Button color="primary" onClick={() => props.toggle(book.id)}>View</Button>
             <Button color="success" onClick={() => props.toggleEditBookModal(book.id)}>Edit</Button>
-            <Button color="danger">Delete</Button>
+            <Button color="danger" onClick={() => props.toggleDeleteBookModal(book.id)}>Delete</Button>
         </li>
         );
     }

@@ -62,6 +62,23 @@ class App extends Component {
     }
   }
 
+  toggleDeleteBookModal(id) {
+    if (confirm('Are you sure?')) {
+      const newArrayOfBooks = [...this.state.books];
+      for (let i = 0; i < newArrayOfBooks.length; i++) {
+        const book = newArrayOfBooks[i];
+        if (book.id === id) {
+          newArrayOfBooks.splice(i,1);
+          break;
+        }
+      }
+
+      this.setState({
+        books: newArrayOfBooks
+      })
+    }
+  }
+
   toggle(id) {
     this.setState({
       modal: !this.state.modal
@@ -77,12 +94,6 @@ class App extends Component {
           break;
         }
       }
-    }
-  }
-
-  handleClick(type, id) {
-    if (type === 'EditBookModal') {
-
     }
   }
 
@@ -103,6 +114,25 @@ class App extends Component {
     this.toggleAddBookModal();
   }
 
+  handleEditBookFormSubmit(event) {
+    event.preventDefault();
+    const newArrayOfBooks = [...this.state.books];
+    const id = event.target.editBookFormId.value;
+    for (let i = 0; i < newArrayOfBooks.length; i++) {
+      const book = newArrayOfBooks[i];
+      if (book.id === id) {
+        book.name = event.target.editBookFormName.value;
+        book.author = event.target.editBookFormAuthor.value;
+        book.description = event.target.editBookFormDescription.value;
+      }
+    }
+    this.setState({
+      books: newArrayOfBooks
+    });
+
+    this.toggleEditBookModal();
+  }
+
   render() {
     return (
       <div>
@@ -120,6 +150,7 @@ class App extends Component {
           toggle={this.toggle}
           books={this.state.books}
           toggleEditBookModal={this.toggleEditBookModal.bind(this)}
+          toggleDeleteBookModal={this.toggleDeleteBookModal.bind(this)}
         />
         <ViewBookModal
           toggle={this.toggle}
@@ -129,6 +160,7 @@ class App extends Component {
           toggle={this.toggleEditBookModal.bind(this)}
           modal={this.state.editBookModal}
           book={this.state.activeBookToEdit}
+          onSubmit={this.handleEditBookFormSubmit.bind(this)}
         />
       </div>
     );

@@ -5,6 +5,7 @@ export default class EditBookForm extends React.Component {
   render() {
     return (
       <Form onSubmit={this.props.onSubmit}>
+        <Input type="hidden" name="editBookFormId" id="editBookFormId" readOnly value={this.props.book.id} />
         <FormGroup>
           <Label for="editBookFormName">Name</Label>
           <Input type="text" name="editBookFormName" id="editBookFormName" defaultValue={this.props.book.name} />
